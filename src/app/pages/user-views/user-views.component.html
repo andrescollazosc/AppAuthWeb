@@ -1,4 +1,11 @@
-<app-card-user
-  *ngFor="let user of userItems"
-  [userModel]="user"
-></app-card-user>
+<app-header-pages [configHeader]="configHeader"></app-header-pages>
+
+<app-spinner *ngIf="isLoading"></app-spinner>
+
+<div *ngIf="!isLoading">
+  <app-card-user
+    *ngFor="let user of userItems"
+    [userModel]="user"
+    (resultEmit)="variableTest($event)"
+  ></app-card-user>
+</div>

@@ -2,6 +2,6 @@ export class RouterModel {
     static readonly ROUTES = {
         HOME: 'home',
         USERS:'users',
-        REGISTER: 'register'
+        SIGN_UP: 'signup'
     }
 }
