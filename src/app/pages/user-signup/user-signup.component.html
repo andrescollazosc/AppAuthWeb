@@ -1,1 +1,80 @@
 <app-header-pages [configHeader]="configHeader"></app-header-pages>
+
+<section>
+  <form (ngSubmit)="saveUser()" [formGroup]="userForm">
+    <div class="form-group">
+      <label for="profile">Perfil</label>
+      <input
+        type="text"
+        class="form-control"
+        id="profile"
+        formControlName="profile"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="userType">Tipo de usuario</label>
+      <input
+        type="text"
+        class="form-control"
+        id="userType"
+        formControlName="userType"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Nombres</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        formControlName="firstName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Apellidos</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        formControlName="lastName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="userName">Usuario</label>
+      <input
+        type="text"
+        class="form-control"
+        id="userName"
+        formControlName="userName"
+      />
+      <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
+        >El campo es obligatorio.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        formControlName="password"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</section>

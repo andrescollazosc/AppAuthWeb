@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { UserViewModel } from '../models/user-view.model';
 import { ApiUrlConstans } from '../constants/api-url.constants';
+import { UserSignUpModel } from '../models/user-singup.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class UserService {
 
   public getUserById(id: number): Observable<UserViewModel> {
     return this.http.get<UserViewModel>(`${ this.URL_BASE }${ this.API.END_POINTS_USER.USER_BY_ID }${ id }`);
+  }
+
+  public saveUser(user: UserSignUpModel): Observable<UserSignUpModel> {
+    return this.http.post<UserSignUpModel>(`${ this.URL_BASE }${ this.API.END_POINTS_USER.SAVE }`, user);
   }
 
 }
