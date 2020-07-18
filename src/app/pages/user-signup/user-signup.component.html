@@ -7,9 +7,11 @@
       <input
         type="text"
         class="form-control"
-        id="profile"
-        formControlName="profile"
+        id="profile"        
       />
+      <!-- <small  id="emailHelp" class="text-danger"
+        >{{ getErrors('profile') }}</small
+      > -->
     </div>
 
     <div class="form-group">
@@ -20,6 +22,9 @@
         id="userType"
         formControlName="userType"
       />
+      <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
+        >{{ getErrors('userType') }}</small
+      >
     </div>
 
     <div class="form-group">
@@ -30,6 +35,9 @@
         id="firstName"
         formControlName="firstName"
       />
+      <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
+        >{{ getErrors('firstName') }}</small
+      >
     </div>
 
     <div class="form-group">
@@ -39,7 +47,11 @@
         class="form-control"
         id="lastName"
         formControlName="lastName"
+        maxlength="30"
       />
+      <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
+        >{{ getErrors('lastName') }}</small
+      >
     </div>
 
     <div class="form-group">
@@ -51,6 +63,9 @@
         placeholder="Email"
         formControlName="email"
       />
+      <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
+        >{{ getErrors('email') }}</small
+      >
     </div>
 
     <div class="form-group">
@@ -62,9 +77,10 @@
         formControlName="userName"
       />
       <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
-        >El campo es obligatorio.</small
+        >{{ getErrors('userName') }}</small
       >
     </div>
+
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input
@@ -73,6 +89,9 @@
         id="exampleInputPassword1"
         formControlName="password"
       />
+      <small *ngIf="validateUserName" id="emailHelp" class="text-danger"
+        >{{ getErrors('password') }}</small
+      >
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>

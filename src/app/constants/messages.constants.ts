@@ -1,7 +1,7 @@
-export class name {
+export class MessageConstants {
     static readonly MESSAGES = {
         VALIDATIONS: {
-            REQUIRED: 'El campo es requuuerido'
+            REQUIRED: 'El campo es requerido'
         }
     };
 }

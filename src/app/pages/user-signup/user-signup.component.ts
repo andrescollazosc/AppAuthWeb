@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderPagesModel } from '../../models/header-pages.model';
 import { LabelsConstants } from '../../constants/labels.constans';
 import { RouterModel } from '../../constants/route.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
+import { GenericFunctionUtil } from '../../utils/generic-functions.util';
 
 @Component({
   selector: 'app-user-signup',
@@ -27,6 +32,21 @@ export class UserSignupComponent implements OnInit {
       this.userForm.get('userName').invalid &&
       this.userForm.get('userName').touched
     );
+  }
+
+  public getErrors(controlName: string): string {
+    let error = '';
+    const control = this.userForm.get(controlName);
+
+    // if (control.invalid && control.touched) {
+    //   error = JSON.stringify(control.errors);
+    // }
+
+    if (control.errors == null) {
+      return '';
+    }
+
+    return GenericFunctionUtil.validateField(control);
   }
 
   public saveUser(): void {
@@ -59,11 +79,11 @@ export class UserSignupComponent implements OnInit {
 
   private createForm(): void {
     this.userForm = this.formBuilder.group({
-      profile: ['', [Validators.required, Validators.minLength(1)]],
+      // profile: ['', [Validators.minLength(1)]],
       userType: ['', [Validators.required, Validators.minLength(1)]],
       firstName: ['', [Validators.required, Validators.minLength(5)]],
       lastName: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(20)]],
+      email: ['', [Validators.required, Validators.minLength(20), Validators.email ]],
       userName: [
         '',
         [
