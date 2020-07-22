@@ -4,16 +4,19 @@ import { MessageConstants } from '../constants/messages.constants';
 export class GenericFunctionUtil {
   private static MESSAGE = { ...MessageConstants.MESSAGES };
 
-  public static validateField(conrtol: AbstractControl): string {
+  public static validateField(control: AbstractControl): string {
     let message = '';
 
-    if (!conrtol.errors) {
+
+    if (control.errors == null) {
+      return '';
+    } else if (!control.errors) {
       message = '';
-    } else if (conrtol.errors.required) {
+    } else if (control.errors.required) {
       message = this.MESSAGE.VALIDATIONS.REQUIRED;
-    } else if (conrtol.errors.minlength) {
-      message = `El campo requiere ${conrtol.errors.minlength.requiredLength} caracteres`;
-    } else if (conrtol.errors.email) {
+    } else if (control.errors.minlength) {
+      message = `El campo requiere ${control.errors.minlength.requiredLength} caracteres`;
+    } else if (control.errors.email) {
       message = 'El campo no cumple con el formato de un email.';
     }
 
