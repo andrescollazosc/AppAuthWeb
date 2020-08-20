@@ -12,6 +12,7 @@ import { CardUserComponent } from './components/card-user/card-user.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { HeaderPagesComponent } from './components/header-pages/header-pages.component';
 import { UserSignupComponent } from './pages/user-signup/user-signup.component';
+import { BigAlertComponent } from './components/big-alert/big-alert.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserSignupComponent } from './pages/user-signup/user-signup.component';
     CardUserComponent,
     SpinnerComponent,
     HeaderPagesComponent,
-    UserSignupComponent
+    UserSignupComponent,
+    BigAlertComponent
   ],
   imports: [
     BrowserModule,

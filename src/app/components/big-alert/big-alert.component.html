@@ -1,0 +1,10 @@
+<div [class]="bigAlertModel.alertType" role="alert">
+  <h4 class="alert-heading">{{ bigAlertModel?.title }}</h4>
+  <p>
+    {{ bigAlertModel.information }}
+  </p>
+  <hr *ngIf="bigAlertModel.informationFoot" />
+  <p *ngIf="bigAlertModel.informationFoot" class="mb-0">
+    {{ bigAlertModel.informationFoot }}
+  </p>
+</div>

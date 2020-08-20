@@ -9,3 +9,5 @@
     (resultEmit)="variableTest($event)"
   ></app-card-user>
 </div>
+
+<app-big-alert [bigAlertModel]="alertModel" *ngIf="hasError"></app-big-alert>

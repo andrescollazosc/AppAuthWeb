@@ -5,6 +5,7 @@ import { finalize } from "rxjs/operators";
 import { HeaderPagesModel } from '../../models/header-pages.model';
 import { LabelsConstants } from '../../constants/labels.constans';
 import { RouterModel } from '../../constants/route.model';
+import { BigAlertModel } from '../../models/big-alert.model';
 
 @Component({
   selector: 'app-user-views',
@@ -15,6 +16,8 @@ export class UserViewsComponent implements OnInit {
   public userItems: UserViewModel[] = [];
   public isLoading = true;
   public configHeader: HeaderPagesModel;
+  public hasError = false;
+  public alertModel: BigAlertModel;
 
   private LABELS = { ...LabelsConstants.USER_VIEWS };
   private ROUTE = { ...RouterModel.ROUTES };
@@ -45,15 +48,24 @@ export class UserViewsComponent implements OnInit {
   }
 
   private getUsers(): void {
-    this.userService.getUsers()
-    .pipe(finalize(() => {
+    this.userService.getUsers().pipe(finalize(() => {
       this.isLoading = false;
     }))
     .subscribe((result) => {
       this.userItems = result;
     }, error => {
-      console.log(error);
+      debugger;
+      this.configAlertModel();
+      this.hasError = true;
     });
+  }
+
+  private configAlertModel(): void {
+    this.alertModel = {
+      title: 'Error',
+      information: 'Ocurrio un error inesperado, por favor comuniquese con el administrador',
+      alertType: "alert alert-danger"
+    };
   }
 
 }
