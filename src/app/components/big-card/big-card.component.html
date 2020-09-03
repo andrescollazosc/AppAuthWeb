@@ -1,0 +1,25 @@
+<div class="card mb-3">
+  <img
+    [src]="getImage(hero?.urlImage)"
+    class="card-img-top img-card"
+    alt="..."
+  />
+  <div class="card-body">
+    <h1 class="card-title display-4">{{ hero.superHero }}</h1>
+    <h4 class="card-title">{{ hero.heroName }}</h4>
+    <p class="card-text">
+      {{ hero.history }}
+    </p>
+    <p class="card-text">
+      <small class="text-muted">{{ hero.yearOfAppearance }}</small>
+    </p>
+
+    <div class="text-right">
+      <img
+        [src]="getLogoEditorial(hero.editorialId)"
+        class="card-img-top logo-card"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>

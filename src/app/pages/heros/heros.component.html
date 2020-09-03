@@ -1,0 +1,8 @@
+<app-spinner *ngIf="isLoad"></app-spinner>
+
+<div *ngIf="!isLoad" class="row">
+  <app-hero-card [hero]="item" [buttonConfig]="configBtn"
+    class="col-9 col-sm-8 col-md-6 col-lg-4 card-buttom"
+    *ngFor="let item of heroItems"
+  ></app-hero-card>
+</div>

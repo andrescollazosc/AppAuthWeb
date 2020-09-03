@@ -1,0 +1,24 @@
+<div class="text-center card" style="width: 18rem">
+  <img
+    [src]="getImage(hero.urlImage)"
+    class="card-img-top super-hero-img"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ hero.superHero }} - {{ hero.yearOfAppearance }}
+    </h5>
+    <p class="card-text">
+      <!-- * {{ hero.heroName }} -->
+    </p>
+    <b> Casa: </b>
+    {{ hero.editorial.houseName }}
+    <hr />
+    <button
+      (click)="onClick(buttonConfig.href, hero.id)"
+      class="btn btn-primary"
+    >
+      {{ buttonConfig.labelBtn }}
+    </button>
+  </div>
+</div>

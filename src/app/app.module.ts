@@ -13,6 +13,19 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { HeaderPagesComponent } from './components/header-pages/header-pages.component';
 import { UserSignupComponent } from './pages/user-signup/user-signup.component';
 import { BigAlertComponent } from './components/big-alert/big-alert.component';
+import { ProductsViewComponent } from './pages/products-view/products-view.component';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { HerosComponent } from './pages/heros/heros.component';
+import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { HeroComponent } from './pages/hero/hero.component';
+import { BigCardComponent } from './components/big-card/big-card.component';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -24,16 +37,27 @@ import { BigAlertComponent } from './components/big-alert/big-alert.component';
     SpinnerComponent,
     HeaderPagesComponent,
     UserSignupComponent,
-    BigAlertComponent
+    BigAlertComponent,
+    ProductsViewComponent,
+    HerosComponent,
+    HeroCardComponent,
+    HeroComponent,
+    BigCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PerfectScrollbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

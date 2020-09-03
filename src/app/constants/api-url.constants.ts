@@ -20,5 +20,12 @@ export class ApiUrlConstans {
         PROFILE_BY_ID: '/profile/',
       },
     },
+    API_HERO: {
+      NAME: '/hero',
+      END_POINTS: {
+        HEROS: '/heros',
+        HERO: '/hero'
+      },
+    }
   };
 }
